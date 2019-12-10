@@ -1,0 +1,17 @@
+<div class="modal-header">
+  <div class="row">
+    <div class="col-12">
+      <h5 class="modal-title"><%= promotion.name %></h5>
+    </div>
+    <div class="col-12">
+      <%= raw(promotion.description) %>
+    </div>
+  </div>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body toc">
+  <%= image_tag promotion.image.url(:medium), class: "img-fluid" %>
+  <%= raw(promotion.term_and_conditions) %>
+</div>

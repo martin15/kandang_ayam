@@ -1,0 +1,3 @@
+console.log("<%= @promotion.inspect  %>")
+$("#promo-content").html("<%=j render 'modal_show_content', promotion: @promotion %>")
+$("#promo-detail").modal("show")

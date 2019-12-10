@@ -1,0 +1,54 @@
+<section class="admin-section-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 header-n-breadcrumb">
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <h2>LOCATIONS</h2>
+          </div>
+          <div class="col-12 col-md-6 align-self-center">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><%= link_to "Home", root_path %></li>
+                <li class="breadcrumb-item active" aria-current="page">Location</li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 admin-locations">
+        <%= render :partial => "shared/flash" %>
+        <p><%= link_to "Add new location", new_admin_location_path, class: "btn btn-primary" %></p>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Address</th>
+              <th>Phone</th>
+              <th>&nbsp;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @locations.each_with_index do |location, x| %>
+              <tr>
+                <th scope="row"><%= @no+x+1 %></th>
+                <td><%= location.name %></td>
+                <td><%= location.address %></td>
+                <td><%= location.phone %></td>
+                <td>
+                  <%= link_to "Edit", edit_admin_location_path(location.id, :location => params[:location]), :class => "btn btn-success" %>
+                  <%= link_to "Delete", admin_location_path(location.id, :location => params[:location] ), :method => :delete,
+                                        data: {:confirm => "Are you sure?"}, :class => "btn btn-danger" %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+        <div class="col-xs-12 pagination justify-content-center"><%= paginate @locations %></div>
+      </div>
+    </div>
+  </div>
+</section>
+

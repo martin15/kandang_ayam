@@ -1,0 +1,4 @@
+<% unless @location_image.nil? %>
+  $("#edit-image").html("<%= j(raw( render partial: 'modal_form', locals: {location_image: @location_image, title: "Edit", url: admin_location_image_path(@location.id, @location_image.id), method: 'put'}  )) %>");
+  $("#edit-image-modal").modal("show")
+<% end %>

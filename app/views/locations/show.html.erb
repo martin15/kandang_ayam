@@ -1,0 +1,66 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "slick" %>
+  <%= stylesheet_link_tag  "slick", "slick-theme" %>
+<% end %>
+
+<section class="main-section <%= manage_menu %>">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 header-n-breadcrumb">
+        <div class="row">
+          <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2"></div>
+        </div>
+      </div>
+
+      <div class="col-12 location-list">
+        <% @locations.each do |loc| %>
+          <%= link_to loc.name.upcase, location_path(loc.permalink),
+                      class: "location btn btn-red #{'category-active' if params[:permalink] == loc.permalink}" %>
+        <% end %>
+      </div>
+
+      <div class="col-12 location-list">
+        <div class="row">
+          <div class="col-12 col-md-7 location-banner">
+            <div class="location-slick">
+              <% @location_images.each do |location_image| %>
+                <div class="item" style="padding:5px;position: relative">
+                  <%= image_tag location_image.image.url(:large), class: "img-fluid" %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="row location-detail">
+              <div class="col-12 name"><%= @location.name %></div>
+              <% if @location.location_url.nil? %>
+                <div class="col-3 address">Address :</div>
+                <div class="col-9 address"><%= raw(@location.address) %></div>
+              <% else %>
+                <div class="col-3 address no-m-b">Address :</div>
+                <div class="col-9 address no-m-b"><%= raw(@location.address) %></div>
+                <div class="col-3 address">&nbsp;</div>
+                <div class="col-9 address">
+                  <%= link_to "View Map", "http://#{@location.location_url}", target: "_blank" %>
+                </div>
+              <% end %>
+              <div class="col-3 phone">Phone :</div>
+              <div class="col-9 phone"><%= @location.phone %></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+$(document).ready(function(){
+  $('.location-slick').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    infinite: false,
+    focusOnSelect: true
+  });
+});
+</script>

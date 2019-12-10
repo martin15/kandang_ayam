@@ -1,0 +1,55 @@
+<%= simple_form_for [:admin, @location], wrapper: :horizontal_form,
+                    wrapper_mappings: { check_boxes: :horizontal_collection, 
+                                        date_picker: :horizontal_collection,
+                                        file: :horizontal_file  } do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :phone %>
+  <%= f.input :location_url %>
+  <div class="form-group row file optional input-note">
+    <label class="col-sm-3 form-control-label file optional">&nbsp;</label>
+    <div class="col-sm-9 input-note">e.g www.google.com (without http://)</div>
+  </div>
+  <% index = 0 %>
+  <%= f.simple_fields_for :location_images do |p| %>
+    <% if p.object.new_record? %>
+      <%= p.input :image, as: :file, input_html: { multiple: true, 
+                  name: "location[location_images_attributes][][image]" }  %>
+    <% else%>
+      <% if index == 0 %>
+        <div class="form-group row file optional location_location_images_image" id="manage-image">
+          <label class="col-sm-3 form-control-label file optional">Image</label>
+            <div class="col-sm-9">
+              <div class="col-sm-12 add-new-location-image">
+                <%= link_to "Add New Image", new_admin_location_image_path(@location.id), 
+                            class: "btn btn-success", remote: true %>
+              </div>
+      <% end %>
+      <% index +=1 %>
+
+      <span class="location-form-image <%= p.object.id.to_i == params[:failed_location_image].to_i ? 'image-error' : 'image-no-error' %>">
+        <%= image_tag p.object.image.url(:thumb), class: "img-fluid" %>
+        <%= link_to "edit", edit_admin_location_image_path(@location.id, p.object.id),
+                    class: "btn btn-primary", remote: true %>
+        <%= link_to "delete", admin_location_image_path(@location.id, p.object.id),  
+                    class: "btn btn-danger", :method => :delete, data: {:confirm => "Are you sure?"} %>
+      </span>
+
+      <% if index == f.object.location_images.size.to_i %>
+          </div>
+        </div>
+      <% end %>
+
+    <% end %>
+  <% end %>
+  <div class="form-group row mb-0">
+    <div class="col-sm-9 offset-sm-3">
+      <%= f.button :submit, class: "btn-primary" %>
+      <%= link_to "Cancel", admin_locations_path(:page => params[:page]),
+                  class: "btn btn-outline-secondary" %>
+    </div>
+  </div>
+<% end %>
+
+<div id="edit-image"></div>

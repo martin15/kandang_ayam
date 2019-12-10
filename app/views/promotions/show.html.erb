@@ -1,0 +1,27 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "slick" %>
+  <%= stylesheet_link_tag  "slick", "slick-theme" %>
+<% end %>
+
+<section class="main-section <%= manage_menu %>">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 promotion">
+        <div class="row">
+          <div class="col-12 col-sm-10 offset-md-1 col-md-8 offset-md-2 name">
+            <h2><%= @promotion.name %></h2>
+          </div>
+          <div class="col-12 col-sm-10 offset-md-1 col-md-8 offset-md-2 short-desc">
+            <%= raw(@promotion.description) %>
+          </div>
+          <div class="col-12 col-sm-10 offset-md-1 col-md-8 offset-md-2">
+            <%= image_tag @promotion.image.url(:medium), class: "img-fluid promotion-img" %>
+          </div>
+          <div class="col-12 col-sm-10 offset-md-1 col-md-8 offset-md-2 toc">
+            <%= raw(@promotion.term_and_conditions) %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

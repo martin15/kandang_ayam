@@ -1,0 +1,56 @@
+<section class="admin-section-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 header-n-breadcrumb">
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <h2>SAUCE</h2>
+          </div>
+          <div class="col-12 col-md-6 align-self-center">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><%= link_to "Home", root_path %></li>
+                <li class="breadcrumb-item active" aria-current="sauce">Sauces</li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 admin-sauces">
+        <%= render :partial => "shared/flash" %>
+        <p>
+          <%= link_to "Add new sauce", new_admin_sauce_path, class: "btn btn-primary" %>
+        </p>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Image</th>
+              <th>URL</th>
+              <th>Order</th>
+              <th>&nbsp;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @sauces.each_with_index do |sauce, x| %>
+              <tr>
+                <th scope="row"><%= @no+x+1 %></th>
+                <td><%= image_tag sauce.image.url(:thumb), class: "img-fluid", style: "width:100px" %></td>
+                <td><%= sauce.name %></td>
+                <td><%= raw(sauce.description) %></td>
+                <td>
+                  <%= link_to "Edit", edit_admin_sauce_path(sauce.id, :sauce => params[:sauce]), :class => "btn btn-success" %>
+                  <%= link_to "Delete", admin_sauce_path(sauce.id, :sauce => params[:sauce] ), :method => :delete,
+                                        data: {:confirm => "Are you sure?"}, :class => "btn btn-danger" %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+        <div class="col-xs-12 pagination justify-content-center"><%= paginate @sauces %></div>
+      </div>
+    </div>
+  </div>
+</section>
+

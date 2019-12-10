@@ -1,0 +1,26 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "bootstrap-datepicker.min.js" %>
+<% end %>
+
+<%= simple_form_for [:admin, @promotion_code], wrapper: :horizontal_form,
+                    wrapper_mappings: { check_boxes: :horizontal_collection, date_picker: :horizontal_collection  } do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :name %>
+  <%= f.input :start_date, :as => :date_picker, input_html: { class: "form-control "} %>
+  <%= f.input :end_date, :as => :date_picker , input_html: { class: "form-control "} %>
+  <div class="form-group row mb-0">
+    <div class="col-sm-9 offset-sm-3">
+      <%= f.button :submit, class: "btn-primary" %>
+      <%= link_to "Cancel", admin_promotion_codes_path(:page => params[:page]),
+                  class: "btn btn-outline-secondary" %>
+    </div>
+  </div>
+<% end %>
+
+<script>
+  $(document).ready(function(){
+    $("input.date_picker").datepicker({
+      format: 'yyyy-mm-dd'
+    });
+  })
+</script>

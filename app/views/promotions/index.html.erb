@@ -1,0 +1,79 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "slick" %>
+  <%= stylesheet_link_tag  "slick", "slick-theme" %>
+<% end %>
+
+<section class="main-section <%= manage_menu %>">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 header-n-breadcrumb">
+        <div class="row">
+          <!--<div class="col-12 col-sm-10 offset-md-1 col-md-8 offset-md-2">
+            <h2>OUR PROMO</h2>
+          </div>
+          <div class="col-12 col-sm-10 offset-md-1 col-md-8 offset-md-2">
+            <p>Dapatkan update promo-promo Kandang Ayam lebih cepat dengan follow akun Instagram 
+               <%#= link_to "@kandang-ayam", "" %> dan LINE official @kandang_ayam</p>
+          </div>-->
+        </div>
+      </div>
+
+      <div class="col-12 category-list">
+        <% @promotion_types.each do |promotion_type| %>
+          <%= link_to promotion_type.upcase, promo_path(promotion_type),
+                      class: "category btn btn-red #{'category-active' if params[:type] == promotion_type}" %>
+        <% end %>
+      </div>
+
+      <div class="col-12 promotion-list">
+        <div class="promotion-slick">
+          <% @promotions.each do |promotion| %>
+            <div class="item" style="padding:5px;position: relative">
+              <%= image_tag promotion.image.url(:medium), class: "img-fluid" %>
+              <%= link_to promo_detail_modal_path(type: params[:type], permalink: promotion.permalink),
+                          class: "p-detail-link", remote: true do %>
+                <div class="promotion-detail">
+                  Check Promotion
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="modal" tabindex="-1" role="dialog" id="promo-detail">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" id="promo-content">
+    </div>
+  </div>
+</div>
+
+<script>
+$(document).ready(function(){
+  $('.promotion-slick').slick({
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    infinite: false,
+    focusOnSelect: true,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 576,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  });
+});
+</script>

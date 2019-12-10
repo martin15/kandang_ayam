@@ -1,0 +1,55 @@
+<section class="admin-section-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 header-n-breadcrumb">
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <h2>PROMOTION CODE</h2>
+          </div>
+          <div class="col-12 col-md-6 align-self-center">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><%= link_to "Home", root_path %></li>
+                <li class="breadcrumb-item active" aria-current="promotion_code">Promotion Code</li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 admin-promotion_codes">
+        <%= render :partial => "shared/flash" %>
+        <p><%= link_to "Add new promotion_code", new_admin_promotion_code_path, class: "btn btn-primary" %></p>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Code</th>
+              <th>Valid Time</th>
+              <th>&nbsp;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @promotion_codes.each_with_index do |promotion_code, x| %>
+              <tr>
+                <th scope="row"><%= @no+x+1 %></th>
+                <td><%= promotion_code.name %></td>
+                <td><%= promotion_code.code %></td>
+                <td><%= "#{promotion_code.start_date.strftime("%d %b %Y") } - 
+                         #{promotion_code.end_date.strftime("%d %b %Y") }" %></td>
+                <td>
+                  <%= link_to "Edit", edit_admin_promotion_code_path(promotion_code.id, :promotion_code => params[:promotion_code]), :class => "btn btn-success" %>
+                  <%= link_to "Delete", admin_promotion_code_path(promotion_code.id, :promotion_code => params[:promotion_code] ), :method => :delete,
+                                        data: {:confirm => "Are you sure?"}, :class => "btn btn-danger" %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+        <div class="col-xs-12 pagination justify-content-center"><%= paginate @promotion_codes %></div>
+      </div>
+    </div>
+  </div>
+</section>
+

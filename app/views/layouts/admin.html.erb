@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <% if @meta_description.present? %>
+      <meta name="description" content="<%= @meta_description %>">
+    <% end %>
+    <meta name="author" content="">
+    <title><%= @meta_title ? @meta_title : ApplicationController::BRAND_NAME %></title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', 'style' %>
+    <%= javascript_include_tag 'application' %>
+    <%= yield :javascript_includes %>
+    <%= yield :css_includes %>
+    <!--[if lt IE 9]>
+      <script src="/assets/html5shiv.js"></script>
+      <script src="/assets/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <% adjust_header = "" %>
+    <% unless current_user.nil? %>
+      <% adjust_header = "logged" %>
+      <section class="d-none d-sm-block logged-user">
+        <div class="row">
+          <div class="col-12 user-info-bar">
+            <div class="row">
+              <div class="col-md-6 hidden-xs">&nbsp;</div>
+              <div class="col-md-6 hidden-xs" id="login-pan">
+                <%= raw welcome_text %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    <% end %>
+    <!-- navbar -->
+    <nav id="nav" class="<%= adjust_header %> " style="">
+      <div class="container">
+        <!-- logo -->
+        <%= link_to root_path, class: "logo" do %>
+        <%# <a class="logo" href="http://www.remonfawzi.com/projects/vamous"> %>
+          <%= image_tag "logo.png", class: "logo1 img-fluid", style: "width:160px" %>
+        <%# </a> %>
+        <% end %>
+        <!-- menu bars -->
+        <div class="bars" id="bars">
+            <span class="first"></span>
+            <span class="second"></span>
+            <span class="third"></span>
+        </div>
+
+        <ul id="menu" class="links">
+          <li class="active"><%= link_to "HOME", admin_path %></li>
+          <li><%= link_to "PAGES", admin_pages_path %></li>
+          <li><%= link_to "BANNER", admin_banners_path %></li>
+          <li><%= link_to "MENU", admin_products_path %></li>
+          <li><%= link_to "SAUS", admin_sauces_path %></li>
+          <li><%= link_to "CATEGORY", admin_categories_path %></li>
+          <li><%= link_to "PROMO CODE", admin_promotion_codes_path %></li>
+          <li><%= link_to "PROMO", admin_promotions_path %></li>
+          <li><%= link_to "SUBSCRIBERS", admin_subscribers_path %></li>
+          <li><%= link_to "LOCATION", admin_locations_path %></li>
+          <%#*<li><%= link_to "DOWNLOADS", "#" %></li>%>
+        </ul>
+      </div>
+    </nav>
+
+    <%= yield %>
+
+    <footer>
+      <div class="footer-bottom-area">
+        <div class="container">
+          <div class="row">
+              <div class="col-12">
+                <div class="copyright">
+                  <p>Copyright © <%= Date.today.year %> <span>Kandang Ayam</span>. All Rights Reserved.</p>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- footer
+    <footer id="footer">
+        <div class="social-media">
+            <div class="container">
+              <a href="https://www.facebook.com/remon.fawzi1" class="facebook">
+                <i class="fa fa-facebook-f add-transition"></i>
+              </a>
+              <a href="https://www.instagram.com/remonfawzi/" class="instagram">
+                <i class="fa fa-instagram add-transition"></i>
+              </a>
+              <a href="https://twitter.com/rem0nfawzi" class="twitter">
+                <i class="fa fa-twitter add-transition"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/rem0nfawzi/" class="linked">
+                <i class="fa fa-linkedin add-transition"></i>
+              </a>
+            </div>
+        </div>
+        <div class="footer-text">
+            <div class="container">
+                <p>all copyrights reserved © 2018</p>
+            </div>
+        </div>
+    </footer> -->
+  </body>
+</html>

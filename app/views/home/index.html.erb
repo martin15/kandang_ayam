@@ -1,0 +1,186 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "owl.carousel" %>
+  <%= stylesheet_link_tag  "owl.carousel", "animate", "owl.theme" %>
+<% end %>
+
+<script>
+  jQuery(document).ready(function($) {
+    $('.banner').owlCarousel({
+      animateOut: 'slideOutDown',
+      animateIn: 'flipInX',
+      loop: true,
+      autoplay: true,
+      autoplayHoverPause: true,
+      items: 1,
+      nav : true,
+      dotsEach: true,
+      autoplaySpeed: 5000,
+      navText : ['<span class="fa-stack"><i class="fa fa-circle fa-stack-1x"></i><i class="fa fa-chevron-circle-left fa-stack-1x fa-inverse"></i></span>','<span class="fa-stack"><i class="fa fa-circle fa-stack-1x"></i><i class="fa fa-chevron-circle-right fa-stack-1x fa-inverse"></i></span>']
+    });
+  });
+</script>
+
+<!-- header -->
+<% adjust_header = current_user.nil? ? "" : "logged-banner" %>
+<section id="header" class="<%= adjust_header %>">
+  <div class="row no-gutters f-banner">
+    <div class="col-12">
+        <div class="banner owl-carousel owl-theme">
+          <% @banners.each do |banner| %>
+            <div class="item">
+              <%= image_tag banner.image.url(:large) %>
+            </div>
+          <% end %>
+        </div>
+    </div>
+  </div>
+</section>
+<!--
+<section id="client-nav-box" class="main-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+        <div class="client-nav">
+          <div class="icon"><%= fa_icon "camera-retro"%></div>
+          <div class="content">
+            <h2 class="title">Business Services</h2>
+            <p class="text">There are many variations of passages of that Lorem Ipsum available but the majority have suffered alteration.</p>
+          </div>
+        </div>
+      </div> 
+      <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+        <div class="client-nav">
+          <div class="icon"><%= fa_icon "camera-retro"%></div>
+          <div class="content">
+            <h2 class="title">Stratigic Planing</h2>
+            <p class="text">There are many variations of passages of that Lorem Ipsum available but the majority have suffered alteration.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+        <div class="client-nav">
+          <div class="icon"><%= fa_icon "camera-retro"%></div>
+          <div class="content">
+            <h2 class="title">Application Design</h2>
+            <p class="text">There are many variations of passages of that Lorem Ipsum available but the majority have suffered alteration.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+-->
+<section id="static-banner" class="main-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 simple-content">
+        <div class="row">
+          <div class="col-12 col-md-6 no-p-lr">
+            <%= link_to (image_tag @mini_banner_1.image.url, class: "img-fluid", style: "margin-bottom:10px;"), "#" %>
+            <%= link_to (image_tag @mini_banner_2.image.url, class: "img-fluid"), "#" %>
+          </div>
+          <div class="col-12 col-md-4">
+            <%= link_to (image_tag @mini_banner_3.image.url, class: "img-fluid"), "#" %>
+          </div>
+          <div class="col-12 col-md-2 no-p-lr">
+            <%= link_to (image_tag @mini_banner_4.image.url, class: "img-fluid", style: "margin-bottom:10px;"), "#" %>
+            <%= link_to (image_tag @mini_banner_5.image.url, class: "img-fluid", style: "margin-bottom:10px;"), "#" %>
+            <%= link_to (image_tag @mini_banner_6.image.url, class: "img-fluid"), "#" %>
+          </div>
+        </div>
+        <%# <a class="white-button add-transition" id="about-works"><span>see works</span></a> %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="home-note" class="main-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 simple-content">
+        <h1 class="section-title"><%#= raw(@home_note.title) %></h1>
+        <div class="home-content-value"><%#= raw(@home_note.content) %></div>
+        <%# <a class="white-button add-transition" id="about-works"><span>see works</span></a> %>
+      </div>
+    </div>
+  </div>
+</section>
+<!--
+<section id="contact-us" class="main-section">
+  <div class="container-fluid" style="background-color: #666">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="header">Contact Us</h2>
+      </div>
+    </div>
+  </div>
+  <div class="container" style="margin-top:50px;">
+    <div class="row">
+      <div class="col-12 col-lg-4">
+        <div class="row">
+          <div class="col-12">
+            <div class="ca-info">
+              <h4 class="cai-title-1">Our Offices</h4>
+              <h2 class="cai-title-2">Contact Info</h2>
+              <p class="text">There are many variations of passages of an Lorem Ipsum available but the majority have suffered alteration.</p>
+              <ul class="info">
+                <li>
+                  <span class="icon"><%= fa_icon "map-marker" %></span>
+                  <span class="title">Find Us</span>
+                  <span class="details">1010 Avenue, NY 90001, USA</span>
+                </li>
+                <li>
+                  <span class="icon"><%= fa_icon "phone" %></span>
+                  <span class="title">Call Us</span>
+                  <span class="details">+00 152 152 4920</span>
+                </li>
+                <li>
+                  <span class="icon"><%= fa_icon "envelope-o" %></span>
+                  <span class="title">Mail Us</span>
+                  <span class="details">info@domain.com</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-8">
+        <div class="ca-form">
+          <h2 class="title">We Love to Hear From You</h2>
+          <p class="info">Please call or email contact form and we will be happy to assist you.</p>
+          <div class="cf-msg" style="display: none;"></div>
+          <form action="mail.php" method="post" id="cf">
+            <div class="row">
+              <div class="col-12">
+                <div class="ca-input-box">
+                    <input type="text" placeholder="Name" id="fname" name="fname" required="">
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="ca-input-box">
+                    <input type="text" placeholder="Email" id="email" name="email" required="">
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="ca-input-box">
+                    <input type="text" placeholder="Phone" id="phone" name="phone">
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="ca-input-box">
+                    <textarea class="contact-textarea" placeholder="Message" id="msg" name="msg"></textarea>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="ca-input-box">
+                    <button id="submit" class="btn btn-outline-red" name="submit">SEND MESSAGE</button>
+                </div>
+            </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+-->
