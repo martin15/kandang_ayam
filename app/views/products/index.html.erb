@@ -29,7 +29,7 @@
       <div class="col-12 product-list">
         <div class="product-slick">
           <% @products.each do |product| %>
-            <div class="item" style="padding:5px;position: relative">
+            <div class="item custom-slick">
               <%= image_tag product.image(:medium), class: "img-fluid" %>
               <%= link_to product_path(category: @category.permalink, permalink: product.permalink), 
                           class: "p-detail-link" do %>
@@ -55,7 +55,7 @@ $(document).ready(function(){
     focusOnSelect: true,
     responsive: [
       {
-        breakpoint: 768,
+        breakpoint: 991,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1

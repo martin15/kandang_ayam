@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'promo/:type' => 'promotions#index', as: 'promo'
   get 'promo/:type/detail/:permalink' => 'promotions#show', as: 'promo_detail'
   get 'promo/:type/detail-modal/:permalink' => 'promotions#modal_show', as: 'promo_detail_modal'
+  post 'subscribe' => 'home#subscribe', as: 'subscribe'
 
   get    '/login' => 'session#new', as: "login"
   post   '/login' => 'session#create', as: "login_create"

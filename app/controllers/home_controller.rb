@@ -10,4 +10,7 @@ class HomeController < ApplicationController
 
   def about_us
   end
+
+  def subscribe
+  end
 end

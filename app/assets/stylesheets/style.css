@@ -322,8 +322,54 @@ ul.social li img{ width: 20px; }
 /*---------------------------------------
                 FOOTER
 ----------------------------------------*/
+.footer-top-area {
+  background-color: #c2202b;
+  padding: 40px 0;
+  font-size: 14px;
+}
+.footer-top-area form{ padding-right: 100px; }
+
+
+@media (max-width: 768px){
+  .subscribe-button{ text-align: center; }
+  .bar-1{ margin-bottom: 30px;}
+  .bar-2{  }
+}
+@media (max-width: 991px) {
+  .footer-top-area form{ padding-right: 0px; }
+}
+@media (max-width: 570px) {
+  .subscribe-button{ text-align: center; }
+}
+.fw-info p.text{
+  margin-bottom: 30px;
+  font-size: 15px;
+  color: #fff;
+}
+.fw-links div.title, .fw-sosmed div.title{
+  font-size: 25px;
+  margin-bottom: 25px;
+  color: #fff;
+  position: relative;
+}
+.fw-links div.title:after, .fw-sosmed div.title:after{
+  background: #fff none repeat scroll 0 0;
+  bottom: 0;
+  content: "";
+  height: 2px;
+  left: 0;
+  position: absolute;
+  width: 39px;
+}
+
+.fw-links ul, .fw-sosmed ul{
+  list-style: none;
+  padding-left: 0px;
+}
+.fw-links li, .fw-sosmed li, .fw-contact li{ padding: 3px 0; font-size: 14px; }
+.fw-links li a, .fw-sosmed li a, .fw-contact li a{ color: #fff; }
 .footer-bottom-area {
-  background: #c2202b none repeat scroll 0 0;
+  background: #e7424d none repeat scroll 0 0;
   padding: 25px 0 10px;
 }
 
@@ -432,7 +478,7 @@ section.with-user-bar {
 /* ====================== ABOUT US  ======================*/
 #static-banner{
   padding-top: 50px!important;
-  padding-bottom: 10px!important;
+  padding-bottom: 40px!important;
 }
 
 #home-note{
@@ -449,6 +495,17 @@ section.with-user-bar {
   text-align: center;
   font-weight: 600;
 }
+
+
+@media (max-width: 768px){
+  .mid-banner, .right-banner{ text-align: center; margin-top: 20px; }
+}
+@media (max-width: 991px) {
+  ul.social{ margin: 31px 19px 0 0; }
+}
+@media (max-width: 570px) {
+}
+
 
 #home-note .simple-content {
   margin-top: 30px;
@@ -614,6 +671,10 @@ hr.double {
 .category-list, .promotion-list, .location-list{ text-align: center; margin: 0 0 20px;}
 .location-banner{ margin-right: 40px;}
 a.category{ margin: 0 5px;font-size: 12px;}
+@media (max-width: 768px){
+  a.category{ margin-bottom: 10px;}
+  .product-detail{ font-size: 13px!important;}
+}
 a.location{ margin: 0 5px 10px;font-size: 13px;}
 .btn-red {
   border-radius: 20px!important;
@@ -841,16 +902,19 @@ section.logged-user .row{
 /* --------------------------------------------
  *  SLICK + OWL
  *----------------------------------------------- */
-  .slick-prev:before, .slick-next:before {
-    color: black!important;
-    font-size: 30px!important;
-  }
-  .slick-prev, .slick-next {
-    width: 27px!important;
-    height: 27px!important;
-  }
+.custom-slick{
+  padding:5px;position: relative
+}
+.slick-prev:before, .slick-next:before {
+  color: black!important;
+  font-size: 30px!important;
+}
+.slick-prev, .slick-next {
+  width: 27px!important;
+  height: 27px!important;
+}
 
- .wrap-slick3-arrows {
+.wrap-slick3-arrows {
   position: absolute;
   z-index: 100;
   width: 94.6%;

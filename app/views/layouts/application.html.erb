@@ -85,14 +85,64 @@
     <%= yield %>
 
     <footer>
+      <div class="footer-top-area">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-12 bar-1">
+              <div class="fw-info footer-widget">
+                <p class="text">
+                  Daftarkan Email Kamu dan Dapatkan Diakon Dari Kami
+                </p>
+                <div class="subscribe">
+                  <%= form_tag subscribe_path do %>
+                    <div class="form-group">
+                      <%= email_field_tag 'email', "", class: "form-control", placeholder: "Email Address" %>
+                    </div>
+                    <div class="form-group">
+                      <%= text_field_tag 'full_name', "", class: "form-control", placeholder: "Full Name" %>
+                    </div>
+                    <div class="form-group subscribe-button">
+                      <%= button_tag "Subscribe", class: "btn btn-outline-white" %>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-3 col-6 bar-2">
+              <div class="fw-links footer-widget">
+                <div class="title">Menu</div>
+                <ul>
+                  <li><%= link_to "About", "#" %></li>
+                  <li><%= link_to "Menu", "#" %></li>
+                  <li><%= link_to "Promo", "#" %></li>
+                  <li><%= link_to "Location", "#" %></li>
+                  <li><%= link_to "Contact", "#" %></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-3 col-6 bar-3">
+              <div class="fw-sosmed footer-widget">
+                <div class="title">Follow Us</div>
+                <ul>
+                  <li><%= link_to "Line Official", "#" %></li>
+                  <li><%= link_to "Instagram", "#" %></li>
+                  <li><%= link_to "Facebook", "#" %></li>
+                  <li><%= link_to "Whatsapp", "#" %></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="footer-bottom-area">
         <div class="container">
           <div class="row">
-              <div class="col-12">
-                <div class="copyright">
-                  <p>Copyright © <%= Date.today.year %> <span>Kandang Ayam</span>. All Rights Reserved.</p>
-                </div>
+            <div class="col-12">
+              <div class="copyright">
+                <p>Copyright © <%= Date.today.year %> <span>Kandang Ayam</span>. All Rights Reserved.</p>
               </div>
+            </div>
           </div>
         </div>
       </div>
