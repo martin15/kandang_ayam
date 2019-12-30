@@ -1025,6 +1025,7 @@ section.logged-user .row{
 }
 .my-content p{ font-size: 13px; }
 .my-content p.no-style{ margin-bottom: 0px!important; margin-top:0px!important}
+.my-content p.my-text{ padding: 15px 20px 0px!important}
 .my-content p:first-child{ margin-top:10px }
 .my-content img{
   margin: 0 auto;

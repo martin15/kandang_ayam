@@ -16,7 +16,7 @@
   <section class="lp-section_one no-padding-lr" style="background-color:<%= @landing_page.color_one %>">
     <% if @landing_page.section_one.include?("video_tag") %>
       <div class="container no-padding-lr">
-        <div class="row justify-content-center  no-margin-lr">
+        <div class="row justify-content-center no-margin-lr">
           <div class="col-12 no-padding-lr">
               <%= video_tag @landing_page.video.url, class: "img-fluid my-video",
                             loop: true, muted: "muted" %>
@@ -25,9 +25,9 @@
         </div>
       </div>
     <% else %>    
-      <div class="container">
-        <div class="row justify-content-center  no-margin-lr">
-          <div class="col-12">
+      <div class="container no-padding-lr">
+        <div class="row justify-content-center no-margin-lr">
+          <div class="col-12 no-padding-lr">
             <div class="my-content">
               <%= raw(@landing_page.section_one) %>
             </div>
@@ -42,7 +42,7 @@
   <section class="lp-section_one no-padding-lr" style="background-color:<%= @landing_page.color_two %>">
     <% if @landing_page.section_two.include?("video_tag") %>
       <div class="container no-padding-lr">
-        <div class="row justify-content-center  no-margin-lr">
+        <div class="row justify-content-center no-margin-lr">
           <div class="col-12 no-padding-lr">
               <%= video_tag @landing_page.video.url, class: "img-fluid my-video",
                             loop: true, muted: "muted" %>
@@ -51,9 +51,9 @@
         </div>
       </div>
     <% else %>    
-      <div class="container">
-        <div class="row justify-content-center  no-margin-lr">
-          <div class="col-12">
+      <div class="container no-padding-lr">
+        <div class="row justify-content-center no-margin-lr">
+          <div class="col-12 no-padding-lr">
             <div class="my-content">
               <%= raw(@landing_page.section_two) %>
             </div>
@@ -68,7 +68,7 @@
   <section class="lp-section_one no-padding-lr" style="background-color:<%= @landing_page.color_three %>">
     <% if @landing_page.section_three.include?("video_tag") %>
       <div class="container no-padding-lr">
-        <div class="row justify-content-center  no-margin-lr">
+        <div class="row justify-content-center no-margin-lr">
           <div class="col-12 no-padding-lr">
               <%= video_tag @landing_page.video.url, class: "img-fluid my-video",
                             loop: true, muted: "muted" %>
@@ -77,9 +77,9 @@
         </div>
       </div>
     <% else %>    
-      <div class="container">
-        <div class="row justify-content-center  no-margin-lr">
-          <div class="col-12">
+      <div class="container no-padding-lr">
+        <div class="row justify-content-center no-margin-lr">
+          <div class="col-12 no-padding-lr">
             <div class="my-content">
               <%= raw(@landing_page.section_three) %>
             </div>
