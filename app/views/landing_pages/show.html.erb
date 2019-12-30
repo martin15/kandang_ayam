@@ -1,0 +1,82 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "isInViewport.js" %>
+<% end %>
+
+<% unless @landing_page.banner.nil? %>
+  <section class="lp-banner no-padding-lr">
+    <div class="row justify-content-center no-margin-lr">
+      <div class="col-12 no-padding-lr">
+        <%= image_tag @landing_page.banner.url, class: "img-fluid" %>
+      </div>
+    </div>
+  </section>
+<% end %>
+
+<% unless @landing_page.section_one.nil? %>
+  <section class="lp-section_one no-padding-lr" style="background-color:<%= @landing_page.color_one %>">
+    <div class="container">
+      <div class="row justify-content-center no-margin-lr">
+        <div class="col-12">
+          <% if @landing_page.section_one.include?("video_tag") %>
+            <%= video_tag @landing_page.video.url, class: "img-fluid my-video",
+                          loop: true, muted: "muted" %>
+          <% else %>
+            <%= raw(@landing_page.section_one) %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </section>
+<% end %>
+
+<% unless  @landing_page.section_two.nil? %>
+  <section class="lp-section_one no-padding-lr" style="background-color:<%= @landing_page.color_two %>">
+    <div class="container">
+      <div class="row justify-content-center  no-margin-lr">
+        <div class="col-12">
+          <% if @landing_page.section_two.include?("video_tag") %>
+            <%= video_tag @landing_page.video.url, class: "img-fluidmy-video",
+                          loop: true, muted: "muted" %>
+          <% else %>
+            <div class="my-content">
+              <%= raw(@landing_page.section_two) %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </section>
+<% end %>
+
+<% unless  @landing_page.section_three.nil? %>
+  <section class="lp-section_one no-padding-lr" style="background-color:<%= @landing_page.color_three %>">
+    <div class="container">
+      <div class="row justify-content-center  no-margin-lr">
+        <div class="col-12">
+          <% if @landing_page.section_three.include?("video_tag") %>
+            <%= video_tag @landing_page.video.url, class: "img-fluidmy-video",
+                          loop: true, muted: "muted" %>
+          <% else %>
+            <div class="my-content">
+              <%= raw(@landing_page.section_three) %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </section>
+<% end %>
+
+<script>
+  jQuery(document).ready(function($) {
+    $(window).scroll(function() {
+      if ($('video').is(":in-viewport(300)")) {
+        $('video')[0].play();
+      } else {
+        $('video')[0].pause();
+      }
+    });
+  });
+</script>
+
+

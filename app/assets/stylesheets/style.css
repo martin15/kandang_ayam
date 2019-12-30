@@ -20,6 +20,9 @@ p {color: #000;}
 .no-p-r{padding-right: 0!important;}
 .datepicker { font-size: 13px!important}
 
+.no-margin-lr{margin-left: 0px!important;margin-right: 0px!important;}
+.no-padding-lr{padding-left: 0px!important;padding-right: 0px!important;}
+
 /*---------------------------------------
                 NAV
 ----------------------------------------*/
@@ -333,7 +336,7 @@ ul.social li img{ width: 20px; }
 @media (max-width: 768px){
   .subscribe-button{ text-align: center; }
   .bar-1{ margin-bottom: 30px;}
-  .bar-2{  }
+  /* .bar-2{  } */
 }
 @media (max-width: 991px) {
   .footer-top-area form{ padding-right: 0px; }
@@ -1004,6 +1007,28 @@ section.logged-user .row{
   color:#FFF;
   font-size:12px;
   display:block;
+}
+
+
+/* --------------------------------------------
+ *  LANDING PAGE
+ *----------------------------------------------- */
+.lp-banner{
+  /* position: relative; */
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 75px;
+}
+.my-video{
+  display: block;
+  margin: 0 auto;
+}
+.my-content p{ font-size: 13px; }
+.my-content p.no-style{ margin-bottom: 0px!important; margin-top:0px!important}
+.my-content p:first-child{ margin-top:10px }
+.my-content img{
+  margin: 0 auto;
+  display: block;
 }
 
 

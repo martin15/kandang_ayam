@@ -15,7 +15,7 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
 Rails.application.config.assets.precompile += %w(
   application.js slick.js owl.carousel.js ckeditor/* lg-hash.js lg-pager.js lg-video.js 
-  lg-thumbnail.js lightgallery.js jquery.mousewheel.min.js bootstrap-datepicker.min.js
+  lg-thumbnail.js lightgallery.js jquery.mousewheel.min.js bootstrap-datepicker.min.js isInViewport.js
 
   style.css slick.css owl.carousel.css owl.theme.css animate.css lightgallery.css 
   bootstrap-datepicker.css bootstrap-datepicker.css.map slick-theme.css

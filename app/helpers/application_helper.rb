@@ -8,7 +8,7 @@ module ApplicationHelper
   def welcome_text
     str = ""
     str = str + "#{link_to raw("<i class='icon fa fa-sign-out'></i> Sign Out"),
-                           logout_path, :method => :Delete}"
+                           logout_path, :method => :delete}"
     str = str + "#{link_to raw("<i class='icon fa fa-user user'  style='min-height:44px'></i>
                                 #{current_user.name.titleize}"), admin_path}"
   end

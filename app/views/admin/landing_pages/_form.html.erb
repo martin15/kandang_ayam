@@ -1,0 +1,28 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "/assets/ckeditor/ckeditor" %>
+<% end %>
+
+<%= simple_form_for [:admin, @landing_page], wrapper: :horizontal_form,
+                    wrapper_mappings: { check_boxes: :horizontal_collection, 
+                                        file: :horizontal_file } do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :title %>
+  <%= f.input :banner, as: :file %>
+  <%= f.input :video, as: :file %>
+  <%= f.input :color_one, as: :color %>
+  <%= f.input :section_one, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } } %>
+  <%= f.input :color_two, as: :color %>
+  <%= f.input :section_two, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } } %>
+  <%= f.input :color_three, as: :color %>
+  <%= f.input :section_three, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } } %>
+
+
+  <%= f.input :page, :as => :hidden, :input_html => { :value => params[:page] || 1 } %>
+  <div class="form-group row mb-0">
+    <div class="col-sm-9 offset-sm-3">
+      <%= f.button :submit, class: "btn-primary" %>
+      <%= link_to "Cancel", admin_landing_pages_path(:landing_page => params[:landing_page]),
+                  class: "btn btn-outline-secondary" %>
+    </div>
+  </div>
+<% end %>

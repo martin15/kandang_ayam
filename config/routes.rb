@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'promo/:type' => 'promotions#index', as: 'promo'
   get 'promo/:type/detail/:permalink' => 'promotions#show', as: 'promo_detail'
   get 'promo/:type/detail-modal/:permalink' => 'promotions#modal_show', as: 'promo_detail_modal'
+  get 'home/:permalink' => 'landing_pages#show', as: 'landing_page'
   post 'subscribe' => 'home#subscribe', as: 'subscribe'
 
   get    '/login' => 'session#new', as: "login"
@@ -25,7 +26,7 @@ Rails.application.routes.draw do
         resources :location_images, except: [:index], param: :location_image_id
       end
     end
-    resources :pages
+    resources :landing_pages
     resources :products do
       collection do
         post :reload_brand
