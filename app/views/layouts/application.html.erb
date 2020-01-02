@@ -141,11 +141,11 @@
               <div class="fw-links footer-widget">
                 <div class="title">Menu</div>
                 <ul>
-                  <li><%= link_to "About", "#" %></li>
-                  <li><%= link_to "Menu", "#" %></li>
-                  <li><%= link_to "Promo", "#" %></li>
-                  <li><%= link_to "Location", "#" %></li>
-                  <li><%= link_to "Contact", "#" %></li>
+                  <li><%= link_to "About", about_us_path %></li>
+                  <li><%= link_to "Menu", products_path(Category.default) %></li>
+                  <li><%= link_to "Promo", promo_path(Promotion::TYPE.first) %></li>
+                  <li><%= link_to "Location", location_path(Location.default) %></li>
+                  <li><%= link_to "Contact", contact_us_path %></li>
                 </ul>
               </div>
             </div>

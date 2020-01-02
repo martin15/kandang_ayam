@@ -35,7 +35,6 @@ Rails.application.routes.draw do
         resources :product_images, except: [:index], param: :product_image_id
       end
     end
-    resources :promotion_codes
     resources :promotions
     resources :sauces
     resources :subscribers

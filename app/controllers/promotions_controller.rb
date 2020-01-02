@@ -3,7 +3,11 @@ class PromotionsController < ApplicationController
 
   def index
     params[:type] = Promotion::TYPE.first if params[:type].nil?
-    @promotions = Promotion.where("promo_type = '#{params[:type]}'")
+    if params[:type] == "All Promo"
+      @promotions = Promotion.all
+    else
+      @promotions = Promotion.where("promo_type = '#{params[:type]}'")
+    end
     @promotion_types = Promotion::TYPE
   end
 
