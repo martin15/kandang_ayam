@@ -34,7 +34,8 @@
 
                   <div class="col-12">
                     <div class="ca-input-box">
-                      <%= f.input :subject, label_html: { class: 'sr-only' }, placeholder: "Subject" %>
+                      <%= f.input :subject, label_html: { class: 'sr-only' }, placeholder: "Subject",
+                                  collection: Contact::SUBJECT, include_blank: false %>
                     </div>
                   </div>
                   <div class="col-12">
@@ -57,61 +58,12 @@
           </div>
         </div>
       </div>
-
-<!--
-      <div class="col-12 contact-us" style="margin-top:20px;">
-        <div class="row">
-          <div class="col-12 col-md-6">
-            <%= image_tag "kandang-ayam.jpg", class: "img-fluid" %>
-          </div>
-          <div class="col-12 col-md-6">
-            <div class="ca-form">
-              <%= simple_form_for @contact, url: save_contact_us_path(anchor: "hubungi-kami"), wrapper: :vertical_form,
-                        wrapper_mappings: { check_boxes: :vertical_collection } do |f| %>
-                <div class="row">
-                  <div class="col-12"><%= f.error_notification %></div>
-                  <div class="col-12">
-                    <div class="ca-input-box">
-                      <%= f.input :name, label_html: { class: 'sr-only' }, placeholder: "Name" %>
-                    </div>
-                  </div>
-                  <div class="col-12">
-                    <div class="ca-input-box">
-                      <%= f.input :email, label_html: { class: 'sr-only' }, placeholder: "Email" %>
-                    </div>
-                  </div>
-                  <div class="col-12">
-                    <div class="ca-input-box">
-                      <%= f.input :phone, label_html: { class: 'sr-only' }, placeholder: "Phone Number" %>
-                    </div>
-                  </div>
-
-                  <div class="col-12">
-                    <div class="ca-input-box">
-                      <%= f.input :subject, label_html: { class: 'sr-only' }, placeholder: "Subject" %>
-                    </div>
-                  </div>
-                  <div class="col-12">
-                    <div class="ca-input-box">
-                      <%= f.input :content, label_html: { class: 'sr-only' }, placeholder: "Write Message", 
-                                  as: "text", :input_html => { :rows => 7 } %>
-                    </div>
-                  </div>
-
-                  <div class="col-md-12 mb-3">
-                    <span><%#= recaptcha_tags %></span>
-                  </div>
-
-                  <div class="col-md-12">
-                    <button type="submit" class="btn btn-outline-red">Send Message</button>
-                  </div>
-                </div>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      </div>
--->
     </div>
   </div>
 </section>
+
+<script>
+  jQuery(document).ready(function($) {
+    $( "#contact_subject" ).prepend( "<option value='' disabled selected hidden>Subject</option>" );
+  });
+</script>

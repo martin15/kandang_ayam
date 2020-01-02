@@ -11,10 +11,15 @@ user = User.find_or_create_by(email: "martin.me15@yahoo.com") do |user|
 end
 puts user.inspect
 
+user = User.find_or_create_by(email: "kandangayamid@gmail.com") do |user|
+  user.name = "KA Admin"
+  user.password_digest = BCrypt::Password.create('kandangayam2020').to_s
+end
+puts user.inspect
+
 banner_1 = Banner.find_or_create_by(permalink: "mini-banner-1") do |banner|
   banner.image = File.new("#{Rails.root}/app/assets/images/mini-banner-1.png")
   puts banner.inspect
-  puts "----"
 end
 puts banner_1.errors.inspect
 puts banner_1.inspect
