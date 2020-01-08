@@ -25,7 +25,8 @@
             <div class="location-slick">
               <% @location_images.each do |location_image| %>
                 <div class="item" style="padding:5px;position: relative">
-                  <%= image_tag location_image.image.url(:large), class: "img-fluid" %>
+                  <%= image_tag location_image.image.url(:large), class: "img-fluid",
+                                alt: "#{@location.name.humanize.titleize}" %>
                 </div>
               <% end %>
             </div>

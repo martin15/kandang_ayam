@@ -15,7 +15,8 @@
             <%= raw(@promotion.description) %>
           </div>
           <div class="col-12 col-sm-10 offset-md-1 col-md-8 offset-md-2">
-            <%= image_tag @promotion.image.url(:medium), class: "img-fluid promotion-img" %>
+            <%= image_tag @promotion.image.url(:medium), class: "img-fluid promotion-img",
+                          alt: "#{@promotion.name.humanize.titleize}" %>
           </div>
           <div class="col-12 col-sm-10 offset-md-1 col-md-8 offset-md-2 toc">
             <%= raw(@promotion.term_and_conditions) %>

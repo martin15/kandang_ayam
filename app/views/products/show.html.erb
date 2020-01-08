@@ -20,7 +20,8 @@
             <div class="product-images-slick">
               <% @product_images.each do |product_image| %>
                 <div class="item" style="padding:5px;position: relative">
-                  <%= image_tag product_image.get_image(:medium), class: "img-fluid" %>
+                  <%= image_tag product_image.get_image(:medium), class: "img-fluid", 
+                                alt: "Kandang Ayam #{@product.name.humanize.titleize}" %>
                 </div>
               <% end %>
             </div>
@@ -29,13 +30,18 @@
             <div class="row">
               <div class="col-12 p-name"><%= @product.name %></div>
               <div class="col-12 p-desc"><%= raw(@product.description) %></div>
-              <% @sauces.each do |sauce| %>
-                <div class="col-4 col-md-3 p-sauce">
-                  <% available = @relared_sauces.map(&:id).include?(sauce.id) ? "tersedia" : "tidak_tersedia" %>
-                  <%= image_tag sauce.get_image(:thumb), class: "img-fluid #{available}", 
-                                alt: "#{available.humanize.titleize}" %>
-                </div>
-              <% end %>
+              <div class="col-12 no-padding-lr tiles">
+                <% @sauces.each do |sauce| %>
+                  <div class="col-4 col-md-3 p-sauce tile">
+                    <% available = @relared_sauces.map(&:id).include?(sauce.id) ? "tersedia" : "tidak_tersedia" %>
+                    <%= image_tag sauce.get_image(:thumb), class: "img-fluid #{available}", 
+                                  alt: "#{sauce.name.humanize.titleize}" %>
+                    <div class="details">
+                      <span class="title"><%= sauce.name %></span>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>

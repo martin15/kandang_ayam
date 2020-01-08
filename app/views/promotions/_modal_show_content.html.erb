@@ -12,6 +12,7 @@
   </button>
 </div>
 <div class="modal-body toc">
-  <%= image_tag promotion.image.url(:medium), class: "img-fluid" %>
+  <%= image_tag promotion.image.url(:medium), class: "img-fluid",
+                alt: "#{promotion.name.humanize.titleize}" %>
   <%= raw(promotion.term_and_conditions) %>
 </div>

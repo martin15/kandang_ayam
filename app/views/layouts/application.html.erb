@@ -74,7 +74,7 @@
         <!-- logo -->
         <%= link_to root_path, class: "logo" do %>
         <%# <a class="logo" href="http://www.remonfawzi.com/projects/vamous"> %>
-          <%= image_tag "logo.png", class: "logo1 img-fluid", style: "width:100px" %>
+          <%= image_tag "logo.png", class: "logo1 img-fluid", style: "width:100px", alt: "kandang ayam" %>
         <%# </a> %>
         <% end %>
         <!-- menu bars -->
@@ -102,10 +102,10 @@
         </ul>
         <div class=''>
           <ul class="social">
-            <li class="facebook"><%= link_to (image_tag "icon-line.png") %></li>
-            <li class="instagram"><%= link_to (image_tag "icon-ig.png") %></li>
-            <li class="facebook"><%= link_to (image_tag "icon-fb.png") %></li>
-            <li class="instagram"><%= link_to (image_tag "icon-wa.png") %></li>
+            <li class="line"><%= link_to (image_tag "icon-line.png", alt: "kandang ayam line"), "https://line.me/R/ti/p/%40bfl4174d", target: "_blank" %></li>
+            <li class="instagram"><%= link_to (image_tag "icon-ig.png", alt: "kandang ayam instagram"), "https://www.instagram.com/kandang_ayam", target: "_blank" %></li>
+            <li class="facebook"><%= link_to (image_tag "icon-fb.png", alt: "kandang ayam facebook"), "https://www.facebook.com/kandangayambdg", target: "_blank" %></li>
+            <li class="instagram"><%= link_to (image_tag "icon-wa.png", alt: "kandang ayam wa") %></li>
           </ul>
         </div>
       </div>
@@ -153,9 +153,9 @@
               <div class="fw-sosmed footer-widget">
                 <div class="title">Follow Us</div>
                 <ul>
-                  <li><%= link_to "Line Official", "#" %></li>
-                  <li><%= link_to "Instagram", "#" %></li>
-                  <li><%= link_to "Facebook", "#" %></li>
+                  <li><%= link_to "Line Official", "https://line.me/R/ti/p/%40bfl4174d", target: "_blank" %></li>
+                  <li><%= link_to "Instagram", "https://www.instagram.com/kandang_ayam", target: "_blank"%></li>
+                  <li><%= link_to "Facebook", "https://www.facebook.com/kandangayambdg", target: "_blank" %></li>
                   <li><%= link_to "Whatsapp", "#" %></li>
                 </ul>
               </div>
