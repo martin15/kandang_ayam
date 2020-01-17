@@ -1099,4 +1099,8 @@ section.logged-user .row{
   transition-delay: 0.25s;
 }
 
+p.text-muted{ text-align: center;}
+p.text-muted i.fa{ font-size: 100px;  }
+p.text-muted .text-red{color: red;}
+p.text-muted .text-green{color: green;}
 

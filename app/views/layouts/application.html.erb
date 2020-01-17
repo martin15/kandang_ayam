@@ -105,7 +105,7 @@
             <li class="line"><%= link_to (image_tag "icon-line.png", alt: "kandang ayam line"), "https://line.me/R/ti/p/%40bfl4174d", target: "_blank" %></li>
             <li class="instagram"><%= link_to (image_tag "icon-ig.png", alt: "kandang ayam instagram"), "https://www.instagram.com/kandang_ayam", target: "_blank" %></li>
             <li class="facebook"><%= link_to (image_tag "icon-fb.png", alt: "kandang ayam facebook"), "https://www.facebook.com/kandangayambdg", target: "_blank" %></li>
-            <li class="instagram"><%= link_to (image_tag "icon-wa.png", alt: "kandang ayam wa") %></li>
+            <li class="whatsapp"><%= link_to (image_tag "icon-wa.png", alt: "kandang ayam wa"), " https://api.whatsapp.com/send?phone=6287823200600&text=Hai%21%20Aku%20mau%20nanya%20dong", target: "_blank" %></li>
           </ul>
         </div>
       </div>
@@ -123,17 +123,40 @@
                   Daftarkan Email Kamu dan Dapatkan Diakon Dari Kami
                 </p>
                 <div class="subscribe">
-                  <%= form_tag subscribe_path do %>
-                    <div class="form-group">
-                      <%= email_field_tag 'email', "", class: "form-control", placeholder: "Email Address" %>
+                  <%= form_tag subscribe_path, remote: true do %>
+                  <div class="row">
+                    <div class="form-group col-12">
+                      <%= email_field_tag 'email', "", class: "form-control", placeholder: "Email Address", required: true %>
                     </div>
-                    <div class="form-group">
-                      <%= text_field_tag 'full_name', "", class: "form-control", placeholder: "Full Name" %>
+                    <div class="form-group col-12 col-sm-6">
+                      <%= text_field_tag 'full_name', "", class: "form-control", placeholder: "Full Name", required: true %>
                     </div>
-                    <div class="form-group subscribe-button">
-                      <%= button_tag "Subscribe", class: "btn btn-outline-white" %>
+                    <div class="form-group col-12 col-sm-6">
+                      <%= text_field_tag 'phone', "", class: "form-control", placeholder: "WA Number", required: true %>
                     </div>
+                    <div class="form-group col-12 subscribe-button">
+                      <%= button_tag "Subscribe", class: "btn btn-outline-white", data: { disable_with: "Please wait..."} %>
+                    </div>
+                  </div>
                   <% end %>
+                  <!-- Modal Start -->
+                  <div class="modal fade"  id="product-detail-modal"  tabindex="-1" role="dialog"
+                      aria-labelledby="demoModal" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered  modal-sm  " role="document">
+                      <div class="modal-content">
+                        <div class="container-fluid">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                          <div class="row">
+                            <div class="col-md-12 py-5 my-auto subscribe_text">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Modal Ends -->
                 </div>
               </div>
             </div>
@@ -156,7 +179,7 @@
                   <li><%= link_to "Line Official", "https://line.me/R/ti/p/%40bfl4174d", target: "_blank" %></li>
                   <li><%= link_to "Instagram", "https://www.instagram.com/kandang_ayam", target: "_blank"%></li>
                   <li><%= link_to "Facebook", "https://www.facebook.com/kandangayambdg", target: "_blank" %></li>
-                  <li><%= link_to "Whatsapp", "#" %></li>
+                  <li><%= link_to "Whatsapp", " https://api.whatsapp.com/send?phone=6287823200600&text=Hai%21%20Aku%20mau%20nanya%20dong", target: "_blank" %></li>
                 </ul>
               </div>
             </div>
@@ -177,4 +200,6 @@
       </div>
     </footer>
   </body>
+
+  <%= stylesheet_link_tag  "lunar" %>
 </html>

@@ -1,0 +1,14 @@
+<% if success %>
+  <h2 class="pt-sm-3 text-center">Subscribe Success!</h2>
+  <p class="text-muted">
+    <%= fa_icon "check", class: "text-green" %>
+  </p>
+<% else %>
+  <h2 class="pt-sm-3 text-center">Subscribe Failed!</h2>
+  <p class="text-muted">
+    <%= error_msg %>
+  </p>
+  <p class="text-muted">
+    <%= fa_icon "times", class: "text-red" %>
+  </p>
+<% end %>

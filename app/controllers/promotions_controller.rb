@@ -15,7 +15,6 @@ class PromotionsController < ApplicationController
   end
 
   def modal_show
-    puts @promotion.inspect
     respond_to do |format|
       format.html do
         redirect_to promo_detail_path(type: params[:type], permalink: params[:permalink])

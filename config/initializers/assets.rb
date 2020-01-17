@@ -18,6 +18,6 @@ Rails.application.config.assets.precompile += %w(
   lg-thumbnail.js lightgallery.js jquery.mousewheel.min.js bootstrap-datepicker.min.js isInViewport.js
 
   style.css slick.css owl.carousel.css owl.theme.css animate.css lightgallery.css 
-  bootstrap-datepicker.css bootstrap-datepicker.css.map slick-theme.css
+  bootstrap-datepicker.css bootstrap-datepicker.css.map slick-theme.css lunar.css
  )
 
