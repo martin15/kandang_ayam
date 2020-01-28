@@ -2,8 +2,8 @@ class Product < ApplicationRecord
   has_permalink :name, :update => true
 
   has_many :product_images, inverse_of: :product
-  has_many :products_sauces, dependent: :destroy
-  has_many :sauces, through: :products_sauces
+  has_many :products_complements, dependent: :destroy
+  has_many :complements, through: :products_complements
 
   belongs_to :category
 

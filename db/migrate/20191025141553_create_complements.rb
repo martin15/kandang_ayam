@@ -1,6 +1,6 @@
-class CreateSauces < ActiveRecord::Migration[5.1]
+class CreateComplements < ActiveRecord::Migration[5.1]
   def change
-    create_table :sauces do |t|
+    create_table :complements do |t|
       t.string  :category
       t.string  :name
       t.string  :image

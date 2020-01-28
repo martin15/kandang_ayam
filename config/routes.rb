@@ -36,7 +36,7 @@ Rails.application.routes.draw do
       end
     end
     resources :promotions
-    resources :sauces
+    resources :complements
     resources :subscribers
   end
   root to: "home#index"

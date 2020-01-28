@@ -1,4 +1,4 @@
-class SauceUploader < CarrierWave::Uploader::Base
+class ComplementUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   include CarrierWave::RMagick
   include CarrierWave::MiniMagick

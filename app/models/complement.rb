@@ -1,9 +1,9 @@
-class Sauce < ApplicationRecord
-  TYPE = ["Sambal", "Saus"]
-  has_many :products, through: :products_sauces
-  has_many :products_sauces, dependent: :destroy
+class Complement < ApplicationRecord
+  TYPE = ["Sambal", "Saus", "Additional"]
+  has_many :products, through: :products_complements
+  has_many :products_complements, dependent: :destroy
 
-  mount_uploader :image, SauceUploader
+  mount_uploader :image, ComplementUploader
 
   validates_presence_of :name
   validates_presence_of :image

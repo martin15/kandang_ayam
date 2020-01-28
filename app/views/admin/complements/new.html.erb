@@ -4,20 +4,20 @@
       <div class="col-12 header-n-breadcrumb">
         <div class="row">
           <div class="col-12 col-md-6">
-            <h2>New Sauce</h2>
+            <h2>New Complement</h2>
           </div>
           <div class="col-12 col-md-6 align-self-center">
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item"><%= link_to "Home", root_path %></li>
-                <li class="breadcrumb-item"><%= link_to "sauces", admin_sauces_path %></li>
-                <li class="breadcrumb-item active" aria-current="sauce">New</li>
+                <li class="breadcrumb-item"><%= link_to "complements", admin_complements_path %></li>
+                <li class="breadcrumb-item active" aria-current="complement">New</li>
               </ol>
             </nav>
           </div>
         </div>
       </div>
-      <div class="col-sm-12 admin-sauces">
+      <div class="col-sm-12 admin-complements">
         <%= render :partial => "shared/flash" %>
         <%= render :partial => 'form' %>
       </div>

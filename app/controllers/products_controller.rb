@@ -6,17 +6,18 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.includes([:product_images, :sauces]).find_by_permalink(params[:permalink])
+    @product = Product.includes([:product_images, :complements]).find_by_permalink(params[:permalink])
     if @product.nil?
       redirect_to products_path(@category.permalink)
       return
     end
     @product_images = @product.product_images
-    @relared_sauces = @product.sauces
-    @sauce_type = @relared_sauces.first.try(:category)
-    unless @sauce_type.nil?
-      @sauces = Sauce.where("category = '#{@sauce_type}'")
+    @related_complements = @product.complements
+    @complement_type = @related_complements.first.try(:category)
+    unless @complement_type.nil?
+      @complements = Complement.where("category = '#{@complement_type}'")
     end
+    @additionals = @product.complements.where("category = 'Additional'")
   end
 
   private

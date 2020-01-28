@@ -34,7 +34,7 @@
               <th>#</th>
               <th>Name</th>
               <th>Category</th>
-              <th>Sauces</th>
+              <th>Complements</th>
               <th>Description</th>
               <th>&nbsp;</th>
             </tr>
@@ -46,8 +46,8 @@
                 <td><%= product.name %></td>
                 <td><%= product.category.try(:name) %></td>
                 <td>
-                  <% product.sauces.each do |sauce| %>
-                    - <%= link_to sauce.name, edit_admin_sauce_path(sauce.id) %><br />
+                  <% product.complements.each do |complement| %>
+                    - <%= link_to complement.name, edit_admin_complement_path(complement.id) %><br />
                   <% end %>
                 </td>
                 <td><%= raw(simple_format(product.description))%></td>

@@ -31,17 +31,31 @@
               <div class="col-12 p-name"><%= @product.name %></div>
               <div class="col-12 p-desc"><%= raw(@product.description) %></div>
               <div class="col-12 no-padding-lr tiles">
-                <% @sauces.each do |sauce| %>
-                  <div class="col-4 col-md-3 p-sauce tile">
-                    <% available = @relared_sauces.map(&:id).include?(sauce.id) ? "tersedia" : "tidak_tersedia" %>
-                    <%= image_tag sauce.get_image(:thumb), class: "img-fluid #{available}", 
-                                  alt: "#{sauce.name.humanize.titleize}" %>
+                <% @complements.each do |complement| %>
+                  <div class="col-4 col-md-3 p-complement tile">
+                    <% available = @related_complements.map(&:id).include?(complement.id) ? "tersedia" : "tidak_tersedia" %>
+                    <%= image_tag complement.get_image(:thumb), class: "img-fluid #{available}", 
+                                  alt: "#{complement.name.humanize.titleize}" %>
                     <div class="details">
-                      <span class="title"><%= sauce.name %></span>
+                      <span class="title"><%= complement.name %></span>
                     </div>
                   </div>
                 <% end %>
               </div>
+              <% unless @additionals.empty? %>
+                <div class="col-12 no-padding-lr tiles">
+                  <h4>Additional</h4>
+                  <% @additionals.each do |additional| %>
+                    <div class="col-4 col-md-3 p-complement tile">
+                      <%= image_tag additional.get_image(:thumb), class: "img-fluid", 
+                                    alt: "#{additional.name.humanize.titleize}" %>
+                      <div class="details">
+                        <span class="title"><%= additional.name %></span>
+                      </div>
+                    </div>
+                  <% end %>
+                </div>
+              <% end  %>
             </div>
           </div>
         </div>
