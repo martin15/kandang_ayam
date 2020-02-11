@@ -857,51 +857,43 @@ section.logged-user .row{
 /* --------------------------------------------
  *  ABOUT US
  *----------------------------------------------- */
-.about-us-header{
-  background: url(/assets/about_us.jpg) no-repeat center;
-  height: 400px;
-  background-size: cover;
-}
-.cover-content{
-  position: relative;
-  display: flex;
-  align-items: center;
-  height: 100%;
-}
-#about-us-content {margin-bottom: 100px;}
-#history{ margin-bottom: 40px; }
-#about-us-content .mission h2.title, #about-us-content .vision h2.title,
-#history h2.title{
-  font-size: 40px;
+.about-ka, .mission{ padding: 50px 0; }
+#vision {background-color: #c2202b;}
+.custom-box-our-story {padding: 0 0 0 40px!important;}
+.about-us-content .desc-box{ padding: 0 80px}
+.about-us-content .desc-box-red{ padding: 0 80px; background-color: #c2202b;}
+
+.about-us-content .about-ka h2.title, .about-us-content .mission h2.title, 
+.about-us-content .vision h2.title, .about-us-content .our-story h2.title{
+  font-size: 60px;
   font-weight: 600;
   margin-bottom: 20px;
+  color: #c2202b;
 }
-#about-us-content .vision p, #about-us-content .mission ul li p, #history p{
-  font-size: 16px;
+.about-us-content .vision h2.title, .about-us-content .our-story h2.title{color: #fff!important;}
+
+.about-us-content .about-ka p, .about-us-content .vision p, 
+.about-us-content .mission ul li p, .about-us-content .our-story p{
+  font-size: 15px;
   font-weight: 400;
   color: #666666;
+  line-height: 30px;
+  margin-bottom: 0px;
 }
-#about-us-content .vision p{ line-height: 33px; }
-#about-us-content .mission{ margin-top: 100px; }
-#history a.btn-link {
-  padding: 15px 0;
-  color: #c2202b;
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: 600;
+.about-us-content .vision p, .about-us-content .our-story p{color: #fff!important;}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .about-us-content .about-ka h2.title, .about-us-content .mission h2.title, 
+  .about-us-content .vision h2.title, .about-us-content .our-story h2.title{ font-size: 50px;}
 }
-.btn .fa-angle-right{
-  font-size: 18px;
-  margin-left: 0.25rem;
-  position: relative;
-  top: 1px;
-  transition: all 0.2s ease-in-out;
+
+@media (max-width: 767px) {
+  .mb-custom {padding-bottom: 50px;}
+  .about-ka, .mission{ padding: 0 }
+  .custom-box-our-story {padding: 0!important;}
+  .about-us-content .about-ka h2.title, .about-us-content .mission h2.title, 
+  .about-us-content .vision h2.title, .about-us-content .our-story h2.title{ margin-top: 30px;}
 }
-#history a.btn-link:hover {
-  color: #8f0005;
-  text-decoration: none;
-}
-#history a.btn-link:hover .fa-angle-right { margin-left: 0.35rem; }
 /* --------------------------------------------
  *  SLICK + OWL
  *----------------------------------------------- */

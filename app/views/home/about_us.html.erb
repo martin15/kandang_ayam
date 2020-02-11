@@ -1,95 +1,75 @@
-<% content_for :javascript_includes do %>
-  <%= javascript_include_tag "owl.carousel" %>
-  <%= stylesheet_link_tag  "owl.carousel", "animate", "owl.theme" %>
-<% end %>
 
-<script>
-  jQuery(document).ready(function($) {
-    $('.banner').owlCarousel({
-      animateOut: 'slideOutDown',
-      animateIn: 'flipInX',
-      loop: true,
-      autoplay: true,
-      autoplayHoverPause: true,
-      items: 1,
-      nav : true,
-      dotsEach: true,
-      autoplaySpeed: 5000,
-      navText : ['<span class="fa-stack"><i class="fa fa-circle fa-stack-1x"></i><i class="fa fa-chevron-circle-left fa-stack-1x fa-inverse"></i></span>','<span class="fa-stack"><i class="fa fa-circle fa-stack-1x"></i><i class="fa fa-chevron-circle-right fa-stack-1x fa-inverse"></i></span>']
-    });
-  });
-</script>
-
-<!-- header -->
 <% adjust_header = current_user.nil? ? "" : "logged-banner" %>
-<section id="header" class="<%= adjust_header %>">
-  <div class="row no-gutters f-banner">
-    <div class="col-12">
-      <div class="about-us-header">
-        <div class="container cover-content">
-            <h3>Tentang Kami</h3>
+
+<section id="about-ka" class="<%= adjust_header %> about-us-content">
+  <div class="row about-ka justify-content-center no-margin-lr">
+    <div class="col-12 col-md-6 no-p-lr order-md-2">
+        <%= image_tag "about-us-1.jpg", class: "img-fluid", alt: "Tentang Kandang Ayam" %>
+    </div>
+    <div class="col-12 col-md-6 order-md-1 desc-box align-self-center">
+      <h2 class="title">TENTANG KANDANG AYAM</h2>
+      <p class="subtitle mb-custom">Kandang Ayam merupakan restoran yang di bangun sejak tahun 2015 di Bandung. 
+        Dengan produk andalan berupa ayam krispy dengan pilihan berbagai saus, 
+        hingga saat ini Kandang Ayam telah memiliki beberapa outlet di Bandung</p>
+    </div>
+  </div>
+</section>
+
+<section id="vision" class="about-us-content">
+  <div class="row vision justify-content-center no-margin-lr">
+    <div class="col-12 col-md-5 no-p-lr">
+        <%= image_tag "about-us-2.jpg", class: "img-fluid", alt: "Visi Kandang Ayam" %>
+    </div>
+    <div class="col-12 col-md-7 desc-box align-self-center">
+      <h2 class="title">VISI</h2>
+      <p class="subtitle mb-custom">Kandang Ayam berupaya maksimal untuk menjajah Indonesia dengan cita rasa. 
+        Kandang Ayam selalu menjamin kualitas dan mutu produk-produknya, 
+        memberikan pelayanan yang memuaskan, dan menjaga kebersihan serta nilai-nilai lainnya yang 
+        mendukung terjadinya kepuasan konsumen.</p>
+  </div>
+</section>
+
+<section id="mission" class="about-us-content">
+  <div class="row mission justify-content-center no-margin-lr">
+    <div class="col-12 col-md-6 no-p-lr order-md-2">
+        <%= image_tag "about-us-3.jpg", class: "img-fluid", alt: "Misi Kandang Ayam" %>
+    </div>
+    <div class="col-12 col-md-6 order-md-1 desc-box align-self-center">
+      <h2 class="title">MISI</h2>
+      <ul class="pl-3 mb-custom">
+        <li><p>Memuaskan customer, membanggakan Indonesia.</p></li>
+        <li><p>Memberikan kepuasan kepada seluruh Stakeholders.</p></li>
+        <li><p>Mengembangkan bisnis ke seluruh indonesia.</p></li>
+        <li><p>Tetap paranoid, selalu berinovasi.</p></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="our-story" class="about-us-content">
+  <div class="row our-story justify-content-center no-margin-lr">
+    <div class="col-12 col-md-5 no-p-lr">
+        <%= image_tag "about-us-4.jpg", class: "img-fluid", alt: "Perjalanan Kandang Ayam" %>
+    </div>
+    <div class="col-12 col-md-7 custom-box-our-story">
+      <div class="row no-margin-lr">
+        <div class="col-12 desc-box-red align-self-center pt-5 pb-5">
+          <h2 class="title">PERJALANAN KANDANG AYAM</h2>
+          <p class="subtitle">Kandang Ayam pertama kali membuka restoran pada tahun 2015 di 
+            Jl. Kebon Kawung dimana pada saat itu masih dalam berbentuk gerobak.</p>
+          <p class="subtitle">Pada tahun 2016 Kandang Ayam mulai didatangi oleh foodblogger dan 
+            media lainnya karena dinilai memiliki konsep unik dari segi penyajiannya, 
+            yaitu menggunakan talenan. Selain penyajiannya yang menarik Kandang Ayam juga memiliki 
+            berbagai rasa saus yang beragam. Mulai dari saus dengan rasa gurih hingga saus yang pedas, 
+            saus Kandang Ayam cocok bila dipadukan dengan ayam krispy yang gurih. 
+            Sejak itu Kandang Ayam mulai banyak di datangi oleh pelanggan dan menjadi viral.</p>
+          <p class="subtitle">Tahun 2018 Kandang Ayam mulai banyak membuka cabang outlet di Bandung. 
+            Karena permintaan pelanggan yang semakin meningkat, Kandang Ayam juga menjalin kerjasama 
+            dengan aplikasi online untuk pemesanan take away. Ekspansi ini akan terus berlanjut di 
+            tahun-tahun berikutnya.</p>
+          <p class="subtitle">Kandang Ayam berkomitmen untuk selalu menghadirkan kualitas makanan 
+            dengan pelayanan terbaik, serta memberikan manfaat yang besar bagi masyarakat Indonesia.</p>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="about-us-content" class="main-section">
-  <div class="container" style="margin-top:50px;">
-    <div class="row vision">
-      <div class="col-12 col-md-6">
-        <%= image_tag "img_visi.jpg", class: "img-fluid" %>
-      </div>
-      <div class="col-12 col-md-6 align-self-center">
-        <h2 class="title">Visi</h2>
-        <p class="subtitle">Menjajah Indonesia dengan cita rasa. 
-          Kandang Ayam berupaya maksimal untuk mencapai visi ini, dengan selalu menjamin
-          kualitas dan mutu produk-produknya, memberikan pelayanan yang memuaskan, menjaga
-          kebersihan dan kemanan serta nilai-nilai lainnya yang mendukung terjadinya kepuasan
-          konsumen.</p>
-      </div>
-    </div>
-    <div class="row mission">
-      <div class="col-12 col-md-6 align-self-center">
-        <h2 class="title">Misi</h2>
-        <ul class="pl-3">
-            <li>
-                <p>Memuaskan customer, membanggakan Indonesia.</p>
-            </li>
-            <li>
-                <p>Memberikan kepuasan kepada seluruh Stakeholders.</p>
-            </li>
-            <li>
-                <p>Mengembangkan bisnis ke seluruh indonesia.</p>
-            </li>
-            <li>
-                <p>Tetap paranoid, selalu berinovasi.</p>
-            </li>
-        </ul>
-      </div>
-      <div class="col-12 col-md-6">
-        <%= image_tag "img-misi.jpg", class: "img-fluid" %>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="history" class="main-section">
-  <div class="container">
-    <div class="row">
-      <div class="col-10">
-        <h2 class="title">Sejarah McDonald's Indonesia</h2>
-        <p class="subtitle">McDonald’s merupakan restoran fast food terbesar di dunia yang diawali 
-          pada tahun 1955 di California, Amerika Serikat. Dengan produk unggulan berupa Burger 
-          bernama Bigmac, McDonald’s hingga saat ini telah memiliki ribuan restoran yang tersebar
-          di lebih dari 100 negara, salah satunya Indonesia. McDonald’s pertama kali masuk ke 
-          Indonesia pada tahun 1991 dengan membuka restoran pertamanya di Sarinah, Thamrin.
-        </p>
-        <p>
-          <a href="" class="btn btn-link btn-sm text-left" data-toggle="modal" data-target="#historyDetail">
-            Lihat Selengkapnya <i class="fa fa-angle-right"></i>
-          </a>
-        </p>
       </div>
     </div>
   </div>
