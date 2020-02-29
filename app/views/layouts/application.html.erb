@@ -53,22 +53,24 @@
 
   <body>
     <% adjust_header = "" %>
-    <% unless current_user.nil? %>
-      <% adjust_header = "logged" %>
+    <!--
+    <%# unless current_user.nil? %>
+      <%# adjust_header = "logged" %>
       <section class="d-none d-sm-block logged-user">
         <div class="row">
           <div class="col-12 user-info-bar">
             <div class="row">
               <div class="col-12" id="login-pan">
-                <%= raw welcome_text %>
+                <%#= raw welcome_text %>
               </div>
             </div>
           </div>
         </div>
       </section>
-    <% end %>
+    <%# end %>
+    -->
     <!-- navbar -->
-    <nav id="nav" class="<%= adjust_header %>" style="">
+    <nav id="nav" class="<%= adjust_header %>">
       <div class="container">
         <!-- logo -->
         <%= link_to root_path, class: "logo" do %>
