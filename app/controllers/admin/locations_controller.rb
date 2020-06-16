@@ -9,7 +9,6 @@ class Admin::LocationsController < Admin::ApplicationController
   def new
     @location = Location.new
     @location.location_images.build
-    
   end
 
   def create
