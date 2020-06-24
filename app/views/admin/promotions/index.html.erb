@@ -36,7 +36,7 @@
             <% @promotions.each_with_index do |promotion, x| %>
               <tr>
                 <th scope="row"><%= @no+x+1 %></th>
-                <td><%= image_tag promotion.image.url(:thumb) %></td>
+                <td><%= image_tag promotion.image.url(:thumb) rescue "" %></td>
                 <td><%= promotion.name %></td>
                 <td><%= promotion.promo_type %></td>
                 <td>
