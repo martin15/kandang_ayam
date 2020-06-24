@@ -1,5 +1,5 @@
 class PromotionsController < ApplicationController
-  before_action :find_promotion, only: [:show, :modal_show]
+  before_action :find_promotion, only: [:show]
 
   def index
     params[:type] = Promotion::TYPE.first if params[:type].nil?
@@ -15,6 +15,11 @@ class PromotionsController < ApplicationController
   end
 
   def modal_show
+    @promotion = Promotion.where("permalink = '#{params[:permalink]}'").first
+    if @promotion.nil?
+      redirect_to promo_path(Promotion::TYPE.first)
+    end
+
     respond_to do |format|
       format.html do
         redirect_to promo_detail_path(type: params[:type], permalink: params[:permalink])
