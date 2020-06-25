@@ -66,11 +66,11 @@ class Admin::BannersController < Admin::ApplicationController
 
     def prepare_banner_size
       case @banner.permalink
-      when "mini-banner-1" || "mini-banner-2"
+      when "mini-banner-1", "mini-banner-2"
         @image_size = "570px x 214px"
       when "mini-banner-3"
         @image_size = "350px x 440px"
-      when "mini-banner-4" || "mini-banner-5"
+      when "mini-banner-4", "mini-banner-5"
         @image_size = "190px x 95px"
       when "mini-banner-6"
         @image_size = "190px x 229px"
