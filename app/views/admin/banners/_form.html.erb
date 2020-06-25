@@ -8,7 +8,7 @@
   <%= f.input :image, as: :file  %>
   <div class="form-group row file optional input-note">
     <label class="col-sm-3 form-control-label file optional">&nbsp;</label>
-    <div class="col-sm-9 input-note">please upload image with size 1280px x 500px (width x height)</div>
+    <div class="col-sm-9 input-note">please upload image with size <%= @image_size %> (width x height)</div>
   </div>
   <%= f.input :url %>
   <div class="form-group row file optional input-note">

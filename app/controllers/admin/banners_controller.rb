@@ -13,9 +13,11 @@ class Admin::BannersController < Admin::ApplicationController
 
   def new
     @banner = Banner.new
+    @image_size = "1280px x 548px"
   end
 
   def create
+    @image_size = "1280px x 548px"
     @banner = Banner.new(banner_params)
 
     if @banner.save
@@ -28,6 +30,7 @@ class Admin::BannersController < Admin::ApplicationController
   end
 
   def edit
+    prepare_banner_size
   end
 
   def update
@@ -35,6 +38,7 @@ class Admin::BannersController < Admin::ApplicationController
       flash[:notice] = 'Banner was successfully updated.'
       redirect_to admin_banners_path
     else
+      prepare_banner_size
       flash[:error] = "Banner failed to update"
       render :action => :edit
     end
@@ -57,6 +61,21 @@ class Admin::BannersController < Admin::ApplicationController
       if @banner.nil?
         flash[:notice] = "Cannot find the Banner with id '#{params[:id]}'"
         redirect_to admin_banners_path
+      end
+    end
+
+    def prepare_banner_size
+      case @banner.permalink
+      when "mini-banner-1" || "mini-banner-2"
+        @image_size = "570px x 214px"
+      when "mini-banner-3"
+        @image_size = "350px x 440px"
+      when "mini-banner-4" || "mini-banner-5"
+        @image_size = "190px x 95px"
+      when "mini-banner-6"
+        @image_size = "190px x 229px"
+      else
+        @image_size = "1280px x 548px"
       end
     end
 end

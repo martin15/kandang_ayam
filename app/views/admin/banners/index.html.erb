@@ -43,8 +43,10 @@
                 <td><%= banner.order || '-' %></td>
                 <td>
                   <%= link_to "Edit", edit_admin_banner_path(banner.id, :banner => params[:banner]), :class => "btn btn-success" %>
-                  <%= link_to "Delete", admin_banner_path(banner.id, :banner => params[:banner] ), :method => :delete,
-                                        data: {:confirm => "Are you sure?"}, :class => "btn btn-danger" %>
+                  <% unless Banner::STATIC.include?(banner.permalink.to_s)  %>
+                    <%= link_to "Delete", admin_banner_path(banner.id, :banner => params[:banner] ), :method => :delete,
+                                          data: {:confirm => "Are you sure?"}, :class => "btn btn-danger" %>
+                  <% end %>
                 </td>
               </tr>
             <% end %>
